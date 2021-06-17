@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { parse } from './utils.js';
 import path from 'path';
+import { process } from 'process';
 
 const buildTree = (first, second) => {
 	const file1 = parse(path.resolve(process.cwd(), first));

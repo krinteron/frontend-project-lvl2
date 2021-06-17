@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,9 @@
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "@jest/globals": "^26.6.2",
