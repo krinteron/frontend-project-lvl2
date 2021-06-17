@@ -6,3 +6,5 @@ gendiff:
 	bin/gendiff.js
 lint:
 	npm run pretest
+test:
+	npm test
