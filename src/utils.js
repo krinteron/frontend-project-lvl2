@@ -3,7 +3,7 @@ import path from 'path';
 import process from 'process';
 
 export const readFile = (file) => {
-	return fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8');
+	return fs.readFileSync(path.resolve(process.cwd(), './__tests__/__fixtures__', file), 'utf-8');
 }
 
 export const getExt = (file) => path.extname(file);

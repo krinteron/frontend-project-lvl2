@@ -1,20 +1,35 @@
+import * as path from 'path';
+import process from 'process';
+import { readFileSync } from 'fs';
 import genDiff from '../src/index.js';
 
-const fileJSON1 = './__tests__/__fixtures__/file1.json';
-const fileJSON2 = './__tests__/__fixtures__/file2.json';
+const firstAnswerPath = path.resolve(process.cwd(), './__tests__/__fixtures__/plain.txt');
+const firstAnswer = readFileSync(firstAnswerPath, 'utf8');
+const secondAnswerPath = path.resolve(process.cwd(), './__tests__/__fixtures__/nested.txt');
+const secondAnswer = readFileSync(secondAnswerPath, 'utf8');
+const thirdAnswerPath = path.resolve(process.cwd(), './__tests__/__fixtures__/json.txt');
+const thirdAnswer = readFileSync(thirdAnswerPath, 'utf8');
 
-const fileYAML1 = './__tests__/__fixtures__/file1.yaml';
-const fileYAML2 = './__tests__/__fixtures__/file2.yml';
+test('genDiff JSON plain', () => {
+	expect(genDiff('file1.json', 'file2.json', 'plain')).toEqual(firstAnswer);
+});
 
+test('genDiff YML plain', () => {
+	expect(genDiff('file1.yaml', 'file2.yml', 'plain')).toEqual(firstAnswer);
+});
 
-describe("Filter function", () => {
-	test('JSON files test', () => {
-		expect(genDiff(fileJSON1, fileJSON2)).toMatch('a');
-	});
-	test('YAML files test', () => {
-		expect(genDiff(fileYAML1, fileYAML2)).toMatch('a');
-	});
-	test('Mixed files test', () => {
-		expect(genDiff(fileJSON1, fileYAML2)).toMatch('a');
-	});
+test('genDiff JSON nested', () => {
+	expect(genDiff('file1.json', 'file2.json', 'pretty')).toEqual(secondAnswer);
+});
+
+test('genDiff YML nested', () => {
+	expect(genDiff('file1.json', 'file2.json', 'pretty')).toEqual(secondAnswer);
+});
+
+test('genDiff JSON json', () => {
+	expect(genDiff('file1.json', 'file2.json', 'json')).toEqual(thirdAnswer);
+});
+
+test('genDiff YML json', () => {
+	expect(genDiff('file1.json', 'file2.json', 'json')).toEqual(thirdAnswer);
 });
