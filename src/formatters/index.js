@@ -9,6 +9,8 @@ const formats = {
 };
 
 export default (diff, format) => {
+	console.log('formatter');
+	console.log(format);
 	const getFormatType = formats[format];
 	return getFormatType(diff);
 };

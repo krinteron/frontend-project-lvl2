@@ -11,5 +11,8 @@ export default (file1, file2, format = 'pretty') => {
 	const firstFileParsed = parse(data1, ext1);
 	const secondFileParsed = parse(data2, ext2);
 	const diff = calcDiff(firstFileParsed, secondFileParsed);
+	console.log('index');
+	console.log(format);
+	console.log(diff);
 	return render(diff, format);
 };
