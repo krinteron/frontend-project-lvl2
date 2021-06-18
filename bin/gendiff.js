@@ -13,8 +13,8 @@ program
   .version('0.0.1')
   .helpOption('-h, --help', 'output usage information')
   .arguments('<filepath1> <filepath2>')
-  .option('-f, --format [type]', 'output format')
+  .option('-f, --format [type]', 'output format', 'pretty')
   .action((file1, file2) => {
-    console.log(genDiff(file1, file2));
+    console.log(genDiff(file1, file2, program.format));
   })
   .parse(process.argv);

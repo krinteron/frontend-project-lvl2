@@ -27,8 +27,8 @@ npm link
 
 ### Gendiff JSON:
 
-[![asciicast](https://asciinema.org/a/6ysgJndbYRTuuHWVzDf2VXIRF.svg)](https://asciinema.org/a/6ysgJndbYRTuuHWVzDf2VXIRF)
+[![asciicast](https://asciinema.org/a/VPBoWPzqzTUo7yfy85p3p7pXz.svg)](https://asciinema.org/a/VPBoWPzqzTUo7yfy85p3p7pXz)
 
 ### Gendiff YAML:
 
-[![asciicast](https://asciinema.org/a/dsx8qYhU0VlVGodmxOsQlYLcH.svg)](https://asciinema.org/a/dsx8qYhU0VlVGodmxOsQlYLcH)
+[![asciicast](https://asciinema.org/a/mgU5ocg8KHW0vJ24kNOZkZaNS.svg)](https://asciinema.org/a/mgU5ocg8KHW0vJ24kNOZkZaNS)

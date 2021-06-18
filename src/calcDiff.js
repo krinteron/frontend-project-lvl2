@@ -3,22 +3,29 @@ import _ from 'lodash';
 const calcDiff = (data1, data2) => {
 	const keys = _.orderBy(_.union(Object.keys(data1), Object.keys(data2)));
 
-	const diff = keys.map((key) => {
-		if (_.has(data1, key)) {
-			if (_.has(data2, key)) {
-				if (data1[key] === data2[key]) {
-					return `    ${key}: ${data1[key]}\n`;
-				} else {
-					return `  - ${key}: ${data1[key]}\n  + ${key}: ${data2[key]}\n`;
-				}
-			} else {
-				return `  - ${key}: ${data1[key]}\n`;
+	const result = keys
+		.map((node) => {
+			if (!_.has(data1, node)) {
+				return { name: node, type: 'added', value: data2[node] };
 			}
-		} else {
-			return `  + ${key}: ${data2[key]}\n`;
-		}
-	});
-	return `{\n${diff.join('')}}`;
+			if (!_.has(data2, node)) {
+				return { name: node, type: 'removed', value: data1[node] };
+			}
+			if (_.isObject(data1[node]) && _.isObject(data2[node])) {
+				return { name: node, type: 'nested', children: calcDiff(data1[node], data2[node]) };
+			}
+			if ((typeof data1[node] !== typeof data2[node])
+				|| (data1[node] !== data2[node])) {
+				return {
+					name: node,
+					type: 'changed',
+					valueBefore: data1[node],
+					valueAfter: data2[node],
+				};
+			}
+			return { name: node, type: 'unchanged', value: data1[node] };
+		});
+	return _.sortBy(result, 'name');
 };
 
 export default calcDiff;
