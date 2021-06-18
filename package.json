@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore ."
   },
   "repository": {
@@ -29,15 +29,16 @@
     "gendiff": "bin/gendiff.js"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "transform": {}
   },
   "devDependencies": {
-    "@jest/globals": "^26.6.2",
+    "@jest/globals": "^27.0.1",
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
-    "jest": "^26.6.3",
-    "jest-cli": "^26.6.3"
+    "jest": "^27.0.1",
+    "jest-cli": "^27.0.1"
   }
 }
