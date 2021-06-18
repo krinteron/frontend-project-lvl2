@@ -1,16 +1,14 @@
-import pretty from './pretty.js';
+import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
 const formats = {
-	pretty,
+	stylish,
 	plain,
 	json,
 };
 
 export default (diff, format) => {
-	console.log('formatter');
-	console.log(format);
 	const getFormatType = formats[format];
 	return getFormatType(diff);
 };

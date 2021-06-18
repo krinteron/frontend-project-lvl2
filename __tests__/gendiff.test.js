@@ -19,11 +19,11 @@ test('genDiff YML plain', () => {
 });
 
 test('genDiff JSON nested', () => {
-	expect(genDiff('file1.json', 'file2.json', 'pretty')).toEqual(secondAnswer);
+	expect(genDiff('file1.json', 'file2.json', 'stylish')).toEqual(secondAnswer);
 });
 
 test('genDiff YML nested', () => {
-	expect(genDiff('file1.json', 'file2.json', 'pretty')).toEqual(secondAnswer);
+	expect(genDiff('file1.json', 'file2.json', 'stylish')).toEqual(secondAnswer);
 });
 
 test('genDiff JSON json', () => {
