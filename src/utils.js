@@ -1,7 +1,9 @@
 import fs from 'fs';
-//import _ from 'lodash';
+import path from 'path';
+import process from 'process';
 
-export const parse = (file) => {
-	return JSON.parse(fs.readFileSync(file), 'utf-8');
+export const readFile = (file) => {
+	return fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8');
 }
 
+export const getExt = (file) => path.extname(file);

@@ -1,29 +1,15 @@
 import _ from 'lodash';
-import { parse } from './utils.js';
-import path from 'path';
-import process from 'process';
+import { readFile, getExt } from './utils.js';
+import parse from './parsers.js';
+import calcDiff from './calcDiff';
 
-const buildTree = (first, second) => {
-	const file1 = parse(path.resolve(process.cwd(), first));
-	const file2 = parse(path.resolve(process.cwd(), second));
-	const keys = _.orderBy(_.union(Object.keys(file1), Object.keys(file2)));
-
-	const res = keys.map((key) => {
-		if (_.has(file1, key)) {
-			if (_.has(file2, key)) {
-				if (file1[key] === file2[key]) {
-					return `    ${key}: ${file1[key]}\n`;
-				} else {
-					return `  - ${key}: ${file1[key]}\n  + ${key}: ${file2[key]}\n`;
-				}
-			} else {
-				return `  - ${key}: ${file1[key]}\n`;
-			}
-		} else {
-			return `  + ${key}: ${file2[key]}\n`;
-		}
-	});
-	return `{\n${res.join('')}}`;
+export default (file1, file2) => {
+	const data1 = readFile(file1);
+	const data2 = readFile(file2);
+	const ext1 = getExt(file1);
+	const ext2 = getExt(file2);
+	const firstFileParsed = parse(data1, ext1);
+	const secondFileParsed = parse(data2, ext2);
+	const diff = calcDiff(firstFileParsed, secondFileParsed);
+	return diff;
 };
-
-export default buildTree;
