@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { readFile, getExt } from './utils.js';
 import parse from './parsers.js';
 import calcDiff from './calcDiff';
