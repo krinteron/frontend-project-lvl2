@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-//import commander from '../node_modules/commander';
 import genDiff from '../src/index.js';
-
-//const { Command } = require('commander');
 import { Command } from 'commander';
+
 const program = new Command();
-import process from 'process';
 
 program
   .description('Compares two configuration files and shows a difference.')

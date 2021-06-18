@@ -8,7 +8,7 @@ const formats = {
 	json,
 };
 
-export default (diff, format) => {
+export default (diff, format = 'pretty') => {
 	const getFormatType = formats[format];
 	return getFormatType(diff);
 };
