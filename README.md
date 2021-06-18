@@ -40,3 +40,7 @@ npm link
 ### Gendiff plain YAML:
 
 [![asciicast](https://asciinema.org/a/PX5lXlgf5DeYpHeeF4MAxxtgz.svg)](https://asciinema.org/a/PX5lXlgf5DeYpHeeF4MAxxtgz)
+
+### Gendiff output JSON:
+
+[![asciicast](https://asciinema.org/a/m5zcKymPlp21v77KU53e7xPYQ.svg)](https://asciinema.org/a/m5zcKymPlp21v77KU53e7xPYQ)
