@@ -1,6 +1,6 @@
 import { readFile, getExt } from './utils.js';
 import parse from './parsers.js';
-import calcDiff from './calcDiff';
+import calcDiff from './calcDiff.js';
 
 export default (file1, file2) => {
 	const data1 = readFile(file1);

@@ -25,6 +25,10 @@ npm link
 
 ## Examples
 
-### Gendiff:
+### Gendiff JSON:
 
 [![asciicast](https://asciinema.org/a/6ysgJndbYRTuuHWVzDf2VXIRF.svg)](https://asciinema.org/a/6ysgJndbYRTuuHWVzDf2VXIRF)
+
+### Gendiff YAML:
+
+[![asciicast](https://asciinema.org/a/dsx8qYhU0VlVGodmxOsQlYLcH.svg)](https://asciinema.org/a/dsx8qYhU0VlVGodmxOsQlYLcH)
